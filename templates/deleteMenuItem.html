@@ -1,0 +1,13 @@
+{% extends "main.html" %}
+{% block content %}
+<h1>Are you sure you want to delete {{item.name}}?</h1>
+<form action="{{url_for('deleteMenuItem', restaurant_Id=item.restaurant_id, menu_Id=item.id)}}" method='POST'>
+    <div class="row">
+        <div class="col" style="text-align: right;">
+            <input type="submit" class="btn btn-outline-danger" role="button" aria-pressed="true" value="Delete">
+            <a href="{{url_for('showRestaurantMenu', restaurant_Id=item.restaurant_id)}}"
+                class="btn btn-outline-primary ml-2" aria-pressed="true" role="button">Cancel</a>
+        </div>
+    </div>
+</form>
+{% endblock %}

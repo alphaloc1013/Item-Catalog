@@ -1,0 +1,8 @@
+env
+venv
+*.pyc
+__pychache__
+*.DS_Store
+session01/client_secret.json
+session01/restaurantmenuwithusers.db
+session01/restaurantmenuwithusers.db-journal

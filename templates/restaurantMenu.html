@@ -1,0 +1,116 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="row">
+    <div class="col" style="text-align: center;">
+        <h1>{{restaurant.name}}</h1>
+    </div>
+</div>
+
+
+<!-- {% if items %}
+<div>
+    {% for i in items %}
+    <div class="row py-1">
+        <div class="col-6">
+            <h3>{{i.name}}</h3>
+            <h6>{{i.description}}</h6>
+            <p> {{i.price}} </p>
+        </div>
+        <div class="col-6" style="display: flex; align-items: center; justify-content: flex-end;">
+            <a href="{{url_for('editMenuItem', restaurant_Id=restaurant.id, menu_Id=i.id)}}"
+                class="btn btn-outline-primary" aria-pressed="true" role="button">Edit</a>
+            <a href="{{url_for('deleteMenuItem', restaurant_Id=restaurant.id, menu_Id=i.id)}}"
+                class="btn btn-outline-danger ml-2" aria-pressed="true" role="button">Delete</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %} -->
+
+
+{% if items != [] %}
+<div class="row">
+    <div class="col-md-3">
+        <h2 style="text-align: center;">Appetizers</h2>
+        {% for i in items %}
+        {% if i.course == 'Appetizer' %}
+        <div class="card my-2">
+            <div class="card-body">
+                <h5 class="card-title">{{i.name}}</h5>
+                <p class="card-text">{{i.description}}</p>
+                <p class="menu-price">{{i.price}}</p>
+                <a href="{{url_for('editMenuItem', restaurant_Id=restaurant.id, menu_Id=i.id)}}"
+                    class="btn btn-outline-primary" aria-pressed="true" role="button">Edit</a>
+                <a href="{{url_for('deleteMenuItem', restaurant_Id=restaurant.id, menu_Id=i.id)}}"
+                    class="btn btn-outline-danger ml-2" aria-pressed="true" role="button">Delete</a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="col-md-3">
+        <h2 style="text-align: center;">Entrees</h2>
+        {% for i in items %}
+        {% if i.course == 'Entree' %}
+        <div class="card my-2">
+            <div class="card-body">
+                <h5 class="card-title">{{i.name}}</h5>
+                <p class="card-text">{{i.description}}</p>
+                <p class="menu-price">{{i.price}}</p>
+                <a href="{{url_for('editMenuItem', restaurant_Id=restaurant.id, menu_Id=i.id)}}"
+                    class="btn btn-outline-primary" aria-pressed="true" role="button">Edit</a>
+                <a href="{{url_for('deleteMenuItem', restaurant_Id=restaurant.id, menu_Id=i.id)}}"
+                    class="btn btn-outline-danger ml-2" aria-pressed="true" role="button">Delete</a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="col-md-3">
+        <h2 style="text-align: center;">Desserts</h2>
+        {% for i in items %}
+        {% if i.course == 'Dessert' %}
+        <div class="card my-2">
+            <div class="card-body">
+                <h5 class="card-title">{{i.name}}</h5>
+                <p class="card-text">{{i.description}}</p>
+                <p class="menu-price">{{i.price}}</p>
+                <a href="{{url_for('editMenuItem', restaurant_Id=restaurant.id, menu_Id=i.id)}}"
+                    class="btn btn-outline-primary" aria-pressed="true" role="button">Edit</a>
+                <a href="{{url_for('deleteMenuItem', restaurant_Id=restaurant.id, menu_Id=i.id)}}"
+                    class="btn btn-outline-danger ml-2" aria-pressed="true" role="button">Delete</a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="col-md-3">
+        <h2 style="text-align: center;">Beverages</h2>
+        {% for i in items %}
+        {% if i.course == 'Beverage' %}
+        <div class="card my-2">
+            <div class="card-body">
+                <h5 class="card-title">{{i.name}}</h5>
+                <p class="card-text">{{i.description}}</p>
+                <p class="menu-price">{{i.price}}</p>
+                <a href="{{url_for('editMenuItem', restaurant_Id=restaurant.id, menu_Id=i.id)}}"
+                    class="btn btn-outline-primary" aria-pressed="true" role="button">Edit</a>
+                <a href="{{url_for('deleteMenuItem', restaurant_Id=restaurant.id, menu_Id=i.id)}}"
+                    class="btn btn-outline-danger ml-2" aria-pressed="true" role="button">Delete</a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+<h4>There are no menus for the current restaurant.</h4>
+{% endif %}
+
+<div class="row">
+    <div class="col" style="display: flex; align-items: center; justify-content: flex-end;">
+        <a href="{{url_for('newMenuItem', restaurant_Id=restaurant.id)}}" class="btn btn-outline-warning"
+            aria-pressed="true" role="button">New Menu</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="row">
+    <div class="col" style="text-align: center;">
+        <h1>Restaurants</h1>
+    </div>
+</div>
+
+{% if restaurants %}
+{% for restaurant in restaurants %}
+<div class="row py-1">
+    <div class="col-6">
+        <h4>
+            <a style="color: black;"
+                href="{{url_for('showRestaurantMenu', restaurant_Id=restaurant.id)}}">{{restaurant.name}}</a>
+        </h4>
+    </div>
+    <div class="col-6" style="text-align: right;">
+        <a href="{{url_for('editRestaurant', restaurant_Id=restaurant.id)}}" class="btn btn-outline-primary"
+            aria-pressed="true" role="button">Edit</a>
+        <a href="{{url_for('deleteRestaurant', restaurant_Id=restaurant.id)}}" class="btn btn-outline-danger ml-2"
+            aria-pressed="true" role="button">Delete</a>
+    </div>
+</div>
+{% endfor %}
+{% else %}
+<h3>You currently have no restaurants.</h3>
+{% endif %}
+<div class="row">
+    <div class="col" style="display: flex; align-items: center; justify-content: flex-end;">
+        <a href="{{url_for('newRestaurant')}}" class="btn btn-outline-warning" aria-pressed="true" role="button">New
+            Restaurant</a>
+    </div>
+</div>
+{% endblock %}

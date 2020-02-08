@@ -1,0 +1,53 @@
+{% extends "main.html" %}
+{% block content %}
+<h1>New Menu Item</h1>
+<form action="{{url_for('newMenuItem', restaurant_Id=restaurant_Id)}}" method="POST">
+    <div class="form-group row">
+        <div class="col">
+            <label for="inputName">Name</label>
+            <input type="text" class="form-control" id="inputName" name="name">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col">
+            <label for="inputDescription">Description</label>
+            <input type="text" class="form-control" id="inputDescription" name="description">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col">
+            <label for="inputPrice">Price</label>
+            <input type="text" class="form-control" id="inputPrice" name="price">
+        </div>
+    </div>
+    <div class="form-group row">
+        <legend class="col-form-label col">Course</legend>
+        <div class="col-12">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="course" id="radioCourse" value="Appetizer" checked>
+                <label class="form-check-label" for="radioCourse">Appetizer</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="course" id="radioEntree" value="Entree">
+                <label class="form-check-label" for="radioEntree">Entree</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="course" id="radioDessert" value="Dessert">
+                <label class="form-check-label" for="radioDessert">Dessert</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="course" id="radioBeverage" value="Beverage">
+                <label class="form-check-label" for="radioBeverage">Beverage</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col" style="text-align: right;">
+            <input type="submit" class="btn btn-outline-primary" role="button" aria-pressed="true" value="Create" />
+            <a href="{{url_for('showRestaurantMenu', restaurant_Id=restaurant_Id)}}" class="btn btn-outline-danger ml-2"
+                aria-pressed="true" role="button">Cancel</a>
+        </div>
+    </div>
+</form>
+{% endblock %}

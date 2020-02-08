@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+{% block content %}
+<h1>New Restaurant</h1>
+<form action="{{url_for('newRestaurant')}}" method="POST">
+    <div class="form-group row">
+        <div class="col">
+            <label for="inputName">Name</label>
+            <input type="text" class="form-control" id="inputName" name="name">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col" style="text-align: right;">
+            <input type="submit" class="btn btn-outline-primary" role="button" aria-pressed="true" value="Create" />
+            <a href="{{url_for('showRestaurants')}}" class="btn btn-outline-danger ml-2" aria-pressed="true"
+                role="button">Cancel</a>
+        </div>
+    </div>
+</form>
+{% endblock %}
