@@ -23,7 +23,7 @@ from flask import make_response
 import requests
 
 
-app = Flask('__name__')
+app = Flask(__name__)
 
 
 CLIENT_ID = json.loads(
