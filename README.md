@@ -47,46 +47,46 @@ http://18.211.248.221.xip.io/
 ## 5. Change the SSH port from 22 to 2200.
    Make sure to configure the server firewall before changing the port to 2200. Otherwise, you will lose    your machine.
 
-   Locate the line port 22 in the file /etc/ssh/sshd_config and edit it to port 2200,
+  ## Locate the line port 22 in the file /etc/ssh/sshd_config and edit it to port 2200,
    
-   $ nano /etc/ssh/sshd_config
+    $ nano /etc/ssh/sshd_config
    
    
-   Restart the SSH service usign $ sudo service ssh restart.
+   ## Restart the SSH service usign $ sudo service ssh restart.
    
-   $ service ssh restart
+    $ service ssh restart
 
 ## 6. Creating a new user called grader, and generating a SSH key pair for grader.
    
-   - Add User grader
+   ## Add User grader
    
-   $ sudo adduser grader
+    $ sudo adduser grader
    
-   - Give Sudo Access to grader and set NOPASSWD
+   ## Give Sudo Access to grader and set NOPASSWD
    
-   $ sudo nano /etc/sudoers.d/grader
+    $ sudo nano /etc/sudoers.d/grader
    
-   -Edit the following line to this file
+   ## Edit the following line to this file
    
    grader ALL=(ALL) NOPASSWD:ALL
    
-   - Generate a keypair and push it to server.  Use your local machine to generate a key pair
+   ## Generate a keypair and push it to server.  Use your local machine to generate a key pair
    
-   $ ssh-keygen
+    $ ssh-keygen
    
-   Push it to server: Create .ssh directory in home of server machine. And follow the commands to push      and authorize the key for SSH login. 
+  ## Push it to server: Create .ssh directory in home of server machine. And follow the commands to push and authorize the key      for SSH login. 
    
-   $ mkdir .ssh
-   $ touch .ssh/authorized_keys
+    $ mkdir .ssh
+    $ touch .ssh/authorized_keys
    
-   Copy and paste the key from your local machine, usign nano editor:
+  ## Copy and paste the key from your local machine, usign nano editor:
    
-   $ nano .ssh/authorized_keys
+    $ nano .ssh/authorized_keys
    
-   Changing permission of .ssh and .ssh/authorized_keys
+  ## Changing permission of .ssh and .ssh/authorized_keys
    
-   $ chmod 700 .ssh
-   $ chmod 644 .ssh/authorized_keys
+    $ chmod 700 .ssh
+    $ chmod 644 .ssh/authorized_keys
    
 ## Prepare to deploy project
 
@@ -147,8 +147,7 @@ engine = create_engine('postgresql://catalog:<password>@localhost/catalog')
     $ sudo chown -R grader:grader /var/www/ItemCatalogFlaskApp
 
 ## Clone the Item Catalog and put them in the ItemCatalogFlaskApp/Flaskapp directory:
-$ git clone https://github.com/ashutosh-sharma/Item-Catalog-Project-4---FSND---Udacity
-
+    $ git clone https://github.com/alphaloc1013/Item-Catalog.git
 ## 12. Create the .wsgi file in ItemCatalogFlaskApp to help apache to serve the FlaskApp
 
     $ cd /var/www/ItemCatalogFlaskApp/
