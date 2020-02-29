@@ -1,0 +1,6 @@
+bleach 
+httplib2 
+request 
+oauth2client 
+sqlalchemy 
+psycopg2-binary

@@ -27,11 +27,11 @@ app = Flask(__name__)
 
 
 CLIENT_ID = json.loads(
-    open('/var/www/FlaskApp/Flaskapp/client_secret.json', 'r').read())['web']['client_id']
+    open('/var/www/catalog/FlaskApp/client_secret.json', 'r').read())['web']['client_id']
 APPLICATION_NAME = "Restaurant Menu Application"
 
 
-engine = create_engine('postgresql://catalog:password@localhost/catalog')
+engine = create_engine('postgresql://catalog:catalog@localhost/catalog')
 
 Base.metadata.bind = engine
 
